@@ -50,3 +50,7 @@ async def juego(ctx, userdiscord: discord.Member = None):
         await ctx.send('Esta jugando a "{}"'format(userdiscord.activities[0].name))
     else:
         return
+    
+    
+
+bot.run(tocken)
