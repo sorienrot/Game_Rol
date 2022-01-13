@@ -1,5 +1,5 @@
 # Game_Rol
- Añade un rol cuando juegas al genshin
+ Añade un rol cuando juegas al ASTRONEER, o al juego que elijas
 
 ```python
 import os
@@ -30,7 +30,7 @@ bot = commands.Bot(command_prefix='/', description="Bot creado para añadir role
 async def on_ready():
     print('El bot de se esta ejecutando')
 
-@aiocron.crontab('*/1 * * * *')
+@aiocron.crontab('*/1 * * * *')  # Revisa cada minuto el estado
 async def cornjob3():
     guild = bot.get_guild(idguid)
     astroneer = guild.get_role(rolastro)
@@ -44,7 +44,7 @@ async def cornjob3():
         except:
             pass
 
-@bot.command()
+@bot.command()  # Obtener el nombre del juego, preguntando por un usuario
 async def juego(ctx, userdiscord: discord.Member = None):
     if ctx.author.guild_permissions.manage_roles is True:
         if userdiscord is None:
