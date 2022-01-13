@@ -56,8 +56,7 @@ async def juego(ctx, userdiscord: discord.Member = None):
         return
 
 bot.run(tocken)
-
-'''
+```
 
 Obtener el tocken
 
