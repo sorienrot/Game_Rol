@@ -1,4 +1,4 @@
-# Genshin_Rol
+# Game_Rol
  Añade un rol cuando juegas al genshin
 
 
