@@ -2,11 +2,7 @@
  Añade un rol cuando juegas al ASTRONEER, o al juego que elijas
 
 ```python
-import os
-import configparser
-from configparser import ConfigParser
 import discord
-from discord.enums import RelationshipType
 from discord.ext import commands
 import aiocron
 
