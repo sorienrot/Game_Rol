@@ -3,6 +3,7 @@
 
 ```python
 import discord
+from discord.enums import RelationshipType
 from discord.ext import commands
 import aiocron
 
@@ -32,13 +33,19 @@ async def cornjob3():
     astroneer = guild.get_role(rolastro)
     for X in range(len(guild.members)):
         miembro = guild.members[X]
-        try:
-            if miembro.activities[0].name == juego:
-                await miembro.add_roles(astroneer)
-            else:
+        if len(miembro.activities) == 0:
+            if astroneer in miembro.roles:
                 await miembro.remove_roles(astroneer)
-        except:
-            pass
+        else:
+            try:
+                if miembro.activities[0].name == juego:
+                    await miembro.add_roles(astroneer)
+                else:
+                    if astroneer in miembro.roles:
+                        await miembro.remove_roles(astroneer)
+            except:
+                if astroneer in miembro.roles:
+                    await miembro.remove_roles(astroneer)
 
 @bot.command()  # Obtener el nombre del juego, preguntando por un usuario
 async def juego(ctx, userdiscord: discord.Member = None):
@@ -49,7 +56,7 @@ async def juego(ctx, userdiscord: discord.Member = None):
         miembro = bot.get_member(userdiscord.id)
         await ctx.send('Esta jugando a "{}"'format(userdiscord.activities[0].name))
     else:
-        return
+        return   
 
 bot.run(tocken)
 ```
